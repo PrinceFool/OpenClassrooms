@@ -1,0 +1,5 @@
+#récupérer la liste des groupes dont un utilisateur est membre
+
+Get-ADPrincipalGroupMembership Alain | Select name | Export-Csv Alain.txt -Encoding UTF8
+
+Write-Host "La liste des groupes dont l'utilisateur est membre à été faite"

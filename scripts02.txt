@@ -1,0 +1,12 @@
+# Liste des membres du groupe
+
+Get-ADGroupMember Accueil | Select-Object name | Export-Csv Accueil.txt -Encoding UTF8 
+Get-ADGroupMember DirectionRH |Select-Object name | Export-csv DirectionRH.txt -Encoding UTF8
+Get-ADGroupMember DirectionT |Select-Object name | Export-csv DirectionT.txt -Encoding UTF8
+Get-ADGroupMember DirectionF |Select-Object name | Export-csv DirectionF.txt -Encoding UTF8
+Get-ADGroupMember DirectionM |Select-Object name | Export-csv DirectionM.txt -Encoding UTF8
+Get-ADGroupMember DirectionG |Select-Object name | Export-csv DirectionG.txt -Encoding UTF8
+
+
+
+Write-Host "Voici la liste des membres du groupes"
