@@ -1,5 +1,20 @@
 #récupérer la liste des groupes dont un utilisateur est membre
 
-Get-ADPrincipalGroupMembership Alain | Select name | Export-Csv Alain.txt -Encoding UTF8
+$nom = Read-Host "Merci de Rentrer le nom de l'utilisateur dont vous chercher le groupe"
+Write-Host $nom
+
+$user = Get-AdUser -Filter * -SearchBase  "CN=${nom}, OU=ACME Groupe,DC=ACME,DC=local" -Properties MemberOf
+
+foreach($u in $user) {
+
+    $nom = $u.name
+
+    $membre = $u.memberof
+
+    Add-Content -Path "${nom}.txt" -Value $nom
+
+    Add-Content -Path "${nom}.txt" -Value $membre
+
+}
 
 Write-Host "La liste des groupes dont l'utilisateur est membre à été faite"
